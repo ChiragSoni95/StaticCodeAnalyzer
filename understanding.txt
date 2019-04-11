@@ -1,0 +1,56 @@
+Git repo analyzer 
+ - clone github repos using JGit into local
+ - obtain fixes using commit history
+ - using JGit generate patch files (mostly possible)
+ 
+ - use Understand API to read patch files (research)
+ 
+ ALGO:
+ 
+ - output JSON/XML containing changes for each method 
+	 
+	 <method frequency=20>m1
+		<file>f.java</file>
+		<change>
+			<parameter oldtype="int" newtype="double">salary</parameter>
+		</change>
+		<change>
+			<ifstatement addcondition="true">salary \gt 0</ifstatement>
+		</change>
+	 </method>
+	 
+ - our algo generates above JSON/XML. The algo should be an "abstraction" which is not very generic or very specific. i.e. it should not be hardly coupled/coded to a particular type of change. 
+
+ 
+Tasks:
+
+1. Get closed issues that have pull requests from Github -- done 
+2. get code for corresponding commit  // pending : do checkout for all pull requests : done 
+3. for all pull request commits apply them  (initially starting with base version) : done 
+to do : this for for multiple udbs
+4. keep on updating the UDBs and generate metrics and graphs using understand // use code to handle this : done 
+// grouping of commits
+
+5. Compare consecutive UDBs to identify entity and relationship changes // to be checked for multiple files : done 
+// to be done for existing multiple projects 
+all java keywords handling : done for addition and deletion , //modification to do 
+function call added , function parameter change , variable declaration , function prototype change 
+public class , new files added / deleted , rename a class 
+properties : mapping for xml , generating the xml
+
+6. Make entry in xml for each change for each project : one type of change handled , to be done for all changes 
+   multiple projects  -- automate 
+   
+7. take collection of xmls and find count across all project to identify common bugs : handle specific change type 
+ 
+
+ Links:
+ Understand Python API : https://scitools.com/support/python-api/
+ Git Patch Understanding : http://www.markusbe.com/2009/12/how-to-read-a-patch-or-diff-and-understand-its-structure-to-apply-it-manually/
+ Manual : https://scitools.com/support/manuals/
+ 
+ 
+ https://networkx.github.io/documentation/networkx-1.10/tutorial/tutorial.html
+ 
+ 
+ 
